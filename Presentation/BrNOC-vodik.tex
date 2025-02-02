@@ -1,0 +1,347 @@
+\documentclass[hyperref=unicode,presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+ \usecolortheme{beaver}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{Výroba a ukládání vodíku}
+
+\subtitle{BrNOC 2025}
+%\author{\href{http://z-moravec.net/chemie/zaklady-chemie/}{http://z-moravec.net/}}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Úvod}
+\frame{
+	\vfill
+	\begin{itemize}
+		\item Celosvětová spotřeba energie neustále narůstá.
+		\item V roce 2019 dosáhla celková světová spotřeba elektřiny 22 848 TWh, což je o 1,7 \% více než v roce 2018.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/IEA.png}
+		\caption*{Celosvětová spotřeba elektrické energie.\footnote[frame]{Zdroj: \href{https://www.iea.org/reports/electricity-information-overview/electricity-consumption}{IEA}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\vfill
+	\begin{itemize}
+		\item V roce 2022 bylo v ČR vyrobeno téměř 79 TWh elektrické energie.\footnote[frame]{\href{https://eru.gov.cz/rocni-zprava-o-provozu-elektrizacni-soustavy-cr-pro-rok-2022}{Roční zpráva o provozu elektrizační soustavy ČR pro rok 2022}}
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{|l|l|r@{,}l|}
+			\hline
+			\textbf{Zdroj} & \textbf{Vyrobeno [GWh]} &
+			\multicolumn{2}{c|}{\textbf{Zastoupení [\%]}} \\\hline
+			Jaderné & 29 311 & 37 & 22 \\\hline
+			Parní & 37 288 & 47 & 35 \\\hline
+			Paroplynové & 2 499 & 3 & 17 \\\hline
+			Plynové a spalovací & 3 683 & 4 & 68 \\\hline
+			Vodní & 2 077 & 2 & 64 \\\hline
+			Přečerpávací & 977 & 1 & 24 \\\hline
+			Větrné & 633 & 0 & 80 \\\hline
+			Fotovoltaické & 2 280 & 2 & 90 \\\hline
+			\textbf{Celkem} & \textbf{78 747} & \textbf{100} & \textbf{00} \\\hline
+		\end{tabular}
+	\end{center}
+	\begin{itemize}
+		\item Výkon větrných a fotovoltaických elektráren je závislý na počasí a ročním období, proto je při navyšování jejich podílů v energetickém mixu nutné myslet i na ukládání přebytečné energie.
+	\end{itemize}
+	\vfill
+}
+
+\section{Vodíkové hospodářství}
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Snaha o snížení množství uhlíku v ekonomice.\footnote[frame]{\href{https://www.youtube.com/watch?v=spVuaexIO5k}{Vodík - palivo pro udržitelnou energetiku}}
+		\item Zásoby vodíku na Zemi jsou prakticky nevyčerpatelné.
+		\item Vodík se následně přeměňuje na ekologicky nezávadnou vodu.
+		\item \ce{2 H2 + O2 -> 2 H2O}
+		\item I když se už vodík v praxi využívá, je stále spousta problémů nevyřešená.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.38\textheight]{img/Hydrogen.economy.sys_integration_circle.jpg}
+		\caption*{Vodíkové hospodářství.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hydrogen.economy.sys_integration_circle.jpg}{Mion/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item \textit{Šedý vodík} -- nejběžnější a nejlevnější vodík, získává se rozkladem zemního plynu, zároveň vzniká velké množství \ce{CO2}.
+		\begin{itemize}
+			\item \ce{CH4 + H2O -> CO + 3 H2}
+			\item \ce{CO + H2O -> CO2 + H2}
+		\end{itemize}
+		\item \textit{Modrý vodík} -- stejný jako šedý, ale \ce{CO2} je zachycován a ukládán.
+		\item \textit{Černý a hnědý vodík} -- vyrábí se zplyňováním uhlí nebo biomasy.
+		\begin{itemize}
+			\item \ce{C + 2 H2O -> CO2 + 2 H2}
+		\end{itemize}
+		\item \textit{Zelený vodík} -- vyrábí se elektrolyticky, s využitím čisté energie, tzn. energie generované obnovitelnými zdroji -- solárními panely, větrnými elektrárnami, atd.
+		\item \textit{Žlutý vodík} -- zelený vodík, zdrojem energie je slunce.
+		\item \textit{Růžový vodík} -- stejný jako zelený, ale energie pochází z jaderných elektráren.
+		\item \textit{Bílý vodík} -- získává se z geologických ložisek vodíku.
+		\item \textit{Tyrkysový vodík} -- získává se pyrolýzou methanu, při které nevznikají žádné uhlíkové emise.
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\textit{Elektrolýza vody}
+			\begin{itemize}
+				\item \ce{2 H2O -> 2 H2 + O2}
+				\item Čistá voda obsahuje velmi málo iontů (vodivost 0,055 $\mu$S.cm$^{-1}$).
+				\item \ce{2 H2O <=> H3O+ + OH-}
+				\item K$_w$ = 1,0 $\times$ 10$^{-14}$
+				\item Aby mohla elektrolýza probíhat je nutné přidat vhodný elektrolyt.
+				\item Minimální napětí je 1,23 V.
+				\item \ce{2 H2O -> O2 + 4 H+}, E$^0$ = +1,23 V
+				\item \ce{2 H+ -> H2}, E$^0$ = 0,00 V
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.85\textwidth]{img/Hofmann_voltameter.png}
+				\caption*{Elektrolýza vody.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hofmann_voltameter_it.svg}{HeNRyKus/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\textit{Pyrolýza methanu}\footnote[frame]{\href{https://doi.org/10.1021/acs.iecr.1c01679}{Methane Pyrolysis for Zero-Emission Hydrogen Production: A Potential Bridge Technology from Fossil Fuels to a Renewable and Sustainable Hydrogen Economy}}
+
+	\begin{itemize}
+		\item Jeden z možných mechanismů produkce vodíku bez emisí \ce{CO2}.
+		\item Z ekologického hlediska to není nejoptimálnější metoda, protože je závislá na zemním plynu.
+		\item Jako katalyzátory se využívají kovy (Ni, Co, Fe) nebo uhlík.
+	\end{itemize}
+
+	\begin{align*}
+		\ce{2 CH4 &-> CH3-CH3 + H2} \\
+		\ce{CH3-CH3 &-> CH2=CH2 + H2} \\
+		\ce{CH2=CH2 &-> CH\bond{3}CH + H2} \\
+		\ce{CH2=CH2 + CH4 &-> CH3-CH\bond{2}CH2 + H2} \\
+		\ce{CH\bond{3}CH + CH4 &-> CH3-C\bond{3}CH + H2} \\
+		\ce{CH3-CH\bond{2}CH2 &-> CH2\bond{2}C\bond{2}CH2 + H2} \\
+		\ce{CH3-CH\bond{2}CH2 + CH4 &-> CH3-CH2-CH=CH2 + H2} \\
+	\end{align*}
+}
+
+\frame{
+	\frametitle{}
+	\textbf{Skladování vodíku}
+	\begin{itemize}
+		\item Vodík lze skladovat v čistém stavu nebo jako vázaný ve sloučeninách.
+		\item Plynný vodík je možné skladovat pod nízkým i vysokým tlakem (30--70 MPa).
+		\begin{itemize}
+			\item Ke skladování lze využít zásobníky pro zemní plyn
+			\item Pro skladování velkých množství lze využít podzemní jeskyně nebo staré doly
+		\end{itemize}
+		\item Kapalný vodík vyžaduje velmi nízké teploty, jeho teplota varu je $-$252,8~$^\circ$C (20,4~K).
+		\item V chemickém stavu je možné vodík ukládat ve formě:
+		\begin{itemize}
+			\item hydridů kovů (Pd, Pt, $\ldots$)
+			\item komplexních hydridů (např. \ce{NaAlH4})
+			\item MOFů, příp. COFů
+			\item \ce{NH3.BH3}
+		\end{itemize}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Palladium dokáže absorbovat velká množství vodíku za tvorby nestechiometrického hydridu \ce{PdH_x} ($x < 1$).
+		\item Tato schopnost byla poprvé popsána už v roce 1866, kdy Thomas Graham zjistil, že palladium dokáže absorbovat vodík o objemu odpovídající více než 900 násobku jeho vlastního objemu.\footnote[frame]{\href{https://doi.org/10.1098/rspl.1868.0030}{On the relation of hydrogen to palladium}}
+		\item Tento proces je reverzibilní, proto je palladium využitelné pro skladování vodíku\footnote[frame]{\href{https://doi.org/10.1021/cr030691s}{Thermal Decomposition of the Non-Interstitial Hydrides for the Storage and Production of Hydrogen}} v rámci vodíkového hospodářství.\footnote[frame]{\href{https://www.youtube.com/watch?v=spVuaexIO5k}{Vodík - palivo pro udržitelnou energetiku}}
+		\item Během absorpce vodíku dochází ke změnám fyzikálních vlastností kovu:
+		\begin{itemize}
+			\item Na rozdíl od jiných kovů neztrácí palladium kujnost.
+			\item Vodivost klesá s rostoucí koncentrací vodíku, až do vzniku fáze \ce{PdH_{0.5}}, kdy se hydrid stává polovodičem.
+			\item Susceptibilita se silně mění v závislosti na obsahu vodíku.
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Hydrid také vykazuje supravodivost, kritická teplota je 9~K pro stechiometrii PdH.
+		\item U nestechiometrických fází byla také pozorována vysokoteplotní supravodivost (až 273~K)\footnote[frame]{\href{https://doi.org/10.1016/S0921-4534(02)02745-4}{Possibility of high temperature superconducting phases in PdH}} za nízkého tlaku (na rozdíl od hydridů lanthanu).
+		\item Schopnost absorpce vodíku (\ce{H2} i \ce{D2}) je silně specifická, palladium nesorbuje ani helium, proto jej lze použít pro průmyslové čištění plynného vodíku.
+		\item Pro tyto účely je nutné zabránit tvorbě fáze $\beta$, která způsobuje tvrdnutí materiálu a tím silně omezuje difuzi.
+		\item Obě fáze jsou kubické s plošně centrovanou mřížkou.
+		\item Při vzniku fáze $\alpha$ dochází jen k malých objemovým změnám, nárůst objemu při vzniku $\beta$ fáze je až 10~\%.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Jako další materiály pro skladování vodíku jsou perspektivní např. \textit{grafen} a~\textit{MOFy}.
+				\item Grafen se vodíkem hydrogenuje na grafan, který uvolňuje vodík při teplotě 450~$^\circ$C.
+				\item MOF (Metal--Organic Framework) -- anorganicko--organické hybridní materiály s~porézní strukturou.
+				\item Jsou tvořeny kovovými ionty propojenými organickými linkery.
+				\item Např. komplexy zinečnatých iontů s kyselinou tereftalovou.
+			\end{itemize}
+
+			\begin{center}
+				\chemfig{HOOC-*6(=-=(-COOH)-=-)}
+			\end{center}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/OrthographicView_M-OH-chain.png}
+				\caption*{Krystalová struktura MOFu DUT-5.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:DUT-5_OrthographicView_M-OH-chain.png}{Canucksplayer/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Graphane.png}
+		\caption*{Grafan.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Graphane.png}{Edgar181/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Isoreticular_metal-organic_frameworks_of_the_IRMOF_family.png}
+		\caption*{Struktury MOFů.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Isoreticular_metal-organic_frameworks_of_the_IRMOF_family.png}{François-Xavier Coudert/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.75\textwidth]{img/Hydrogen-Storage_Compound.jpg}
+		\caption*{Struktura MOF-74\footnote[frame]{\href{https://doi.org/10.1039/D0CE01870H}{MOF-74-type frameworks: tunable pore environment and functionality through metal and ligand modification}}, dokáže absorbovat methan i vodík.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hydrogen-Storage_Compound_(5888008691).jpg}{NIST/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\textbf{Využití vodíku}
+	\begin{itemize}
+		\item Spalování vodíku s kyslíkem je technicky obtížně proveditelné, proto se příliš nevyužívá.
+		\item Častější je využití přeměny vodíku v elektrochemických palivových článcích.
+		\item Známe mnoho různých typů článků, liší se jak provedením elektrod, tak i samotným mechanismem elektrochemické reakce.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.37\textheight]{img/Fuel_cell_PEMFC.png}
+		\caption*{Schéma palivového článku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Fuel_cell_PEMFC.svg}{Nécropotame/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/PEM_fuelcell.png}
+		\caption*{Schéma vodíkového článku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:PEM_fuelcell.svg}{Jafet/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item První vodíkový automobil byl v provozu již v roce 1806.\footnote[frame]{\href{https://web.itu.edu.tr/celikmuhamm/bil103/company/webpage.html}{History of Hydrogen Cars}}
+		\item Současné vodíkové motory využívají jak spalování vodíku, tak i~palivové články.
+		\item V současnosti se intenzivně řeší přechod automobilové dopravy z~fosilních paliv na elektřinu nebo vodík.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Rivaz_Engine.jpg}
+				\caption*{Vodíkový motor z roku 1806.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Rivaz_Engine.jpg}{Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Mazda_RX-8_hydrogen.jpg}
+				\caption*{Mazda RX-8 Hydrogen.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Mazda_RX-8_hydrogen_--_2011_DC.jpg}{IFCAR/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\section{Závěr}
+\frame{
+	\vfill
+	\centering \Huge
+	\textbf{Děkuji za pozornost} \\[2ex]
+
+	\large
+	Zdeněk Moravec\\
+	\href{https://is.muni.cz/www/moravec/}{is.muni.cz/www/moravec/}\\
+	hugo@chemi.muni.cz
+	\vfill
+}
+
+\end{document}

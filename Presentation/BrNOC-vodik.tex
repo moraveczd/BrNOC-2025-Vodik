@@ -43,7 +43,8 @@
 
 \subtitle{BrNOC 2025}
 %\author{\href{http://z-moravec.net/chemie/zaklady-chemie/}{http://z-moravec.net/}}
-\author{Zdeněk Moravec, hugo@chemi.muni.cz}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ 
+\adjincludegraphics[height=50mm]{img/IUPAC_PSP.jpg}}
 \date{}
 
 \begin{document}
@@ -53,6 +54,140 @@
 \end{frame}
 
 \section{Úvod}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.3\textwidth}
+			\textbf{Osnova}
+			\begin{enumerate}
+				\item Vodík
+				\item Vodíkové hospodářství
+				\item Výroba vodíku
+				\item Skladování vodíku
+				\item Využití vodíku
+			\end{enumerate}
+		\end{column}
+		\begin{column}{.7\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Hydrogen_balloon_explosion.jpg}
+				\caption*{Výbuch vodíku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hydrogen_balloon_explosion.jpg}{Maxim Bilovitskiy/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Vodík}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Nejjednodušší prvek. V přírodě se vyskytuje ve formě tří izotopů:\footnote[frame]{\href{https://www2.lbl.gov/abc/wallchart/chapters/02/3.html}{The Isotopes of Hydrogen}}
+		\begin{itemize}
+			\item \ce{^1_1H} -- protium, nejběžnější, zastoupení v přírodě 99,9885~\%.
+			\item \ce{^2_1H \bond{3} D} -- deuterium, zastoupení v přírodě 0,0115~\%.
+			\item \ce{^3_1H \bond{3} T} -- tritium, nestabilní izotop, $T_\frac{1}{2}$ = 12,32~let.
+			\item \ce{^3_1H ->[12,32 let] ^3_2He + $\beta$^-}
+		\end{itemize}
+		\item Plynný prvek, vytváří dvouatomové molekuly \ce{H2}.
+		\item Je to nejrozšířenější prvek ve vesmíru.
+		\item Díky své nízké hustotě se dříve využíval ve vzducholodích, nyní se už využívá jen v meteorologických a pouťových balónech.
+		\item Dnes se využívá jako redukční činidlo v organické syntéze a metalurgii.\footnote[frame]{\href{https://doi.org/10.1021/j150584a002}{Nascent Hydrogen}}
+		\item Se vzduchem tvoří výbušnou směs.\footnote[frame]{\href{https://www.youtube.com/watch?v=XlmtcsSJr7Q}{Hydrogen/Oxygen Balloon Explosions}}
+		\item \ce{2 H2 + O2 -> 2 H2O}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/Hindenburg_burning_1937.jpg}
+		\caption*{Výbuch vzducholodi Hindenburg, 1937. 36 mrtvých, 62 zraněných osob.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hindenburg_disaster.jpg}{Sam Sphere/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Spinové izomery divodíku}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item U molekul \ce{H2} byla zjištěna existence \textit{spinových izomerů}, ty se liší vzájemnou orientací \textit{jaderných spinů}.\footnote[frame]{\href{https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Quantum_Mechanics/11\%3A_Molecules/Ortho_and_Para_hydrogen}{Ortho and Para hydrogen}}
+				\item Pokud mají obě jádra spiny orientovány paralelně, jde o \textit{ortho}-vodík, v~opačném případě jde o \textit{para}-vodík.
+				\item Za laboratorní teploty je obsah \textit{ortho}-izomeru zhruba 75~\%.
+				\item Snižováním teploty stoupá koncentrace \textit{para}-izomeru.
+				\item Při nízkých teplotách lze získat čistý \textit{para}-vodík, ale zahříváním nelze získat vyšší koncentraci \textit{ortho}-izomeru než 75~\%.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Spinisomers_of_molecular_hydrogen.png}
+				\caption*{Spinové izomery divodíku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Spinisomers_of_molecular_hydrogen.png}{Xaa/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Vodíková vazba}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item Inter- i intramolekulární vazba.
+				\item Pokud je atom vodíku vázán k elektronegativnímu atomu (F, N, O), dojde k velkému snížení elektronové hustoty v jeho okolí a tím i k zesílení jeho interakce se zápornými náboji v systému.
+				\item Vodíková vazba je odpovědná za vysokou teplotu vody a také za strukturu ledu.
+				\item Má velmi důležitou úlohu v biochemii, setkáme se s ní např. v DNA, proteinech, atd.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Wasserstoffbrückenbindungen-Wasser.png}
+				\caption*{Vodíková vazba ve vodě.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Wasserstoffbrückenbindungen-Wasser.svg}{Raimund Apfelbach/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Redukční činidlo}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Vodík se využívá jako účinné redukční činidlo.
+		\item Nejvyšší účinnosti se dosahuje s využitím tzv. \textit{nascentního vodíku}.
+		\item Mezi účinné redukční činidla patří i komplexní hydridy, např. \ce{NaBH4} nebo	tzv. \textit{superhydrid}, triethylborohydrid lithný.\footnote[frame]{\href{https://www.organic-chemistry.org/chemicals/reductions/lithiumtriethylborohydride.shtm}{Lithium triethylborohydride, LiTEBH, Superhydride}}
+		\item \ce{LiH + Et3B -> LiEt3BH}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/Lithium_triethylborohydride.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\textbf{Raneyův nikl}
+	\begin{itemize}
+		\item Šedý prášek, složený převážně z niklu, vyrábí se ze slitiny niklu s hliníkem.\footnote[frame]{\href{https://www.masterorganicchemistry.com/2011/09/30/reagent-friday-raney-nickel/}{Reagent Friday: Raney Nickel}}
+		\item Ta je rozpuštěna v hydroxidu sodném, hliník se rozpustí za vývoje vodíku, který se nasorbuje na povrch zrn niklu.
+		\item \ce{2 Al + 2 NaOH + 6 H2O -> 2 Na[Al(OH)4] + 3 H2}
+		\item Díky obsahu vodíku je Raneyův nikl pyroforický a musí se uchovávat tak, aby se zabránilo kontaktu se vzdušným kyslíkem.\footnote[frame]{\href{https://www.youtube.com/watch?v=KEOcufv1qdM}{Raney Nickel spontaneous combustion}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.35\textheight]{img/Dry_Raney_nickel.jpg}
+	\end{figure}
+}
+
+\section{Vodíkové hospodářství}
 \frame{
 	\vfill
 	\begin{itemize}
@@ -93,7 +228,6 @@
 	\vfill
 }
 
-\section{Vodíkové hospodářství}
 \frame{
 	\frametitle{}
 	\begin{itemize}

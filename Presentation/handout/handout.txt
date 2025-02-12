@@ -1,7 +1,22 @@
+**** ÚVOD ****
+Zeptat se na výrobu vodíku
+
 **** VODIK ****
-Izomery - ukázat schéma atomu
+Tritium - vysvětlit beta minus přeměnu
+NH3 - podrobněji popsat syntézu
+Izotopy - ukázat schéma atomu
 Spinové izomery - vysvětlit na H2 a fullerenu
 Vodíková vazba - nakreslit strukturní elektronové vzorce
 
+** Jaderná fůze
+Výhody a nevýhody slučování 2H a 3H
+Zeptat se na maximální teplotu na Zemi
+
 
 **** VODIKOVE HOSPODARSTVI ****
+Okomentovat problémy solárních a větrných elektráren
+Malá odbočka k železobetonu
+
+Energetická hustota - spojitost mezi vodíkem a amoniakem
+
+Palladium - špatná dostupnost a vysoká cena

@@ -1,6 +1,7 @@
 # Výroba a ukládání vodíku
 
-Prezentace na [BrNOC 2025](https://brnoc.cz/).
+* Prezentace pro [BrNOC 2025](https://brnoc.cz/).
+* Web: [is.muni.cz/www/moravec/brnoc/](https://is.muni.cz/www/moravec/brnoc/)
 
 ## Osnova
 1. Úvod

@@ -349,6 +349,27 @@
 \subsection{Výroba vodíku}
 \frame{
 	\frametitle{}
+	\textit{Pyrolýza methanu}\footnote[frame]{\href{https://doi.org/10.1021/acs.iecr.1c01679}{Methane Pyrolysis for Zero-Emission Hydrogen Production: A Potential Bridge Technology from Fossil Fuels to a Renewable and Sustainable Hydrogen Economy}}
+
+	\begin{itemize}
+		\item Jeden z možných mechanismů produkce vodíku bez emisí \ce{CO2}.
+		\item Z ekologického hlediska to není nejoptimálnější metoda, protože je závislá na zemním plynu.
+		\item Jako katalyzátory se využívají kovy (Ni, Co, Fe) nebo uhlík.
+	\end{itemize}
+
+	\begin{align*}
+		\ce{2 CH4 &-> CH3-CH3 + H2} \\
+		\ce{CH3-CH3 &-> CH2=CH2 + H2} \\
+		\ce{CH2=CH2 &-> CH\bond{3}CH + H2} \\
+		\ce{CH2=CH2 + CH4 &-> CH3-CH\bond{2}CH2 + H2} \\
+		\ce{CH\bond{3}CH + CH4 &-> CH3-C\bond{3}CH + H2} \\
+		\ce{CH3-CH\bond{2}CH2 &-> CH2\bond{2}C\bond{2}CH2 + H2} \\
+		\ce{CH3-CH\bond{2}CH2 + CH4 &-> CH3-CH2-CH=CH2 + H2} \\
+	\end{align*}
+}
+
+\frame{
+	\frametitle{}
 	\begin{columns}
 		\begin{column}{.65\textwidth}
 			\textit{Elektrolýza vody}
@@ -375,24 +396,68 @@
 
 \frame{
 	\frametitle{}
-	\textit{Pyrolýza methanu}\footnote[frame]{\href{https://doi.org/10.1021/acs.iecr.1c01679}{Methane Pyrolysis for Zero-Emission Hydrogen Production: A Potential Bridge Technology from Fossil Fuels to a Renewable and Sustainable Hydrogen Economy}}
-
+	\vfill
+	\textit{Fotokatalytický rozklad vody}
 	\begin{itemize}
-		\item Jeden z možných mechanismů produkce vodíku bez emisí \ce{CO2}.
-		\item Z ekologického hlediska to není nejoptimálnější metoda, protože je závislá na zemním plynu.
-		\item Jako katalyzátory se využívají kovy (Ni, Co, Fe) nebo uhlík.
+		\item \textbf{Katalyzátory} jsou látky, které mění reakční mechanismus a tím i~rychlost probíhající reakce.
+		\item Katalyzátor není během reakce spotřebováván, i když se reakce účastní. Proto není nutné používat stechiometrické množství.
+		\item Rozlišujeme homogenní a heterogenní katalýzu.
+		\item Reakce: \ce{X + Y -> Z} může v přítomnosti katalyzátoru \textbf{C} probíhat takto:
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.3\textwidth}
+			\begin{tabular}{r@{\ce{->}}l}
+				X + \textbf{C} & X\textbf{C} \\
+				X\textbf{C} + Y & XY\textbf{C} \\
+				XY\textbf{C} & Z\textbf{C} \\
+				Z\textbf{C} & Z + \textbf{C} \\
+			\end{tabular}
+		\end{column}
+		\begin{column}{0.7\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.5\textwidth]{img/CatalysisScheme.png}
+				\caption*{Reakční koordináta nekatalyzované a katalyzované reakce.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:CatalysisScheme.png}{Smokefoot/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Fotochemie} je obor chemie, který se zabývá vlivem záření na průběh chemických reakcí.
+		\item V přírodě se setkáváme např. s fotosyntézou vyvolanou slunečním zářením, v laboratoři zpravidla používáme umělé zdroje záření v oblastech:
+		\begin{itemize}
+			\item UV (100--400 nm)
+			\item VIS (400--750 nm)
+			\item IR (750--2500 nm)
+		\end{itemize}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.75\textwidth]{img/Jablonski_Diagram.png}
+		\caption*{Jablonskiho diagram.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Jablonski_Diagram.png}{Organicoboist/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Fotokatalyzátor} je látka která katalyzuje fotochemické reakce.
+		\item Rozlišujeme opět homogenní a heterogenní katalyzátory.
+		\item Fotokatalytický rozklad vody je velmi účinná a zajímavá metoda převodu solární energie na chemickou.\footnote[frame]{Zdroj: \href{https://www.sciencedirect.com/topics/engineering/photocatalytic-hydrogen-production}{Photocatalytic Hydrogen Production}}
 	\end{itemize}
 
-	\begin{align*}
-		\ce{2 CH4 &-> CH3-CH3 + H2} \\
-		\ce{CH3-CH3 &-> CH2=CH2 + H2} \\
-		\ce{CH2=CH2 &-> CH\bond{3}CH + H2} \\
-		\ce{CH2=CH2 + CH4 &-> CH3-CH\bond{2}CH2 + H2} \\
-		\ce{CH\bond{3}CH + CH4 &-> CH3-C\bond{3}CH + H2} \\
-		\ce{CH3-CH\bond{2}CH2 &-> CH2\bond{2}C\bond{2}CH2 + H2} \\
-		\ce{CH3-CH\bond{2}CH2 + CH4 &-> CH3-CH2-CH=CH2 + H2} \\
-	\end{align*}
+	\begin{figure}
+		\adjincludegraphics[height=0.4\textheight]{img/cctc201601659-fig-0005-m.jpg}
+		\caption*{Fotokatalytický rozklad vody.\footnote[frame]{Zdroj: \href{https://doi.org/10.1002/cctc.201601659}{Wiley}}}
+	\end{figure}
+	\vfill
 }
+
 
 \subsection{Skladování vodíku}
 \frame{
@@ -510,7 +575,7 @@
 			\begin{itemize}
 				\item \textbf{Grafen} -- monovrstva tvořená uhlíky v hybridizaci sp$^2$.
 				\item Poprvé byl připraven v roce 2004 exfoliací grafitu pomocí lepící pásky.\footnote[frame]{\href{https://www.idnes.cz/zpravy/zahranicni/nobelovu-cenu-za-fyziku-dostali-vedci-za-vyzkum-supertenkeho-uhliku.A101005_120031_zahranicni_aha}{Nobelovu cenu za fyziku dostali vědci za výzkum supertenkého uhlíku}} V roce 2010 byla za tento objev udělena Nobelova cena za fyziku.\footnote[frame]{\href{https://www.nobelprize.org/prizes/physics/2010/press-release/}{The Nobel Prize in Physics 2010}}
-				\item Grafen se vodíkem hydrogenuje na grafan. 
+				\item Grafen se vodíkem hydrogenuje na grafan.
 				\item Následným zahřátím na 450~$^\circ$C je možné vodík uvolnit.
 			\end{itemize}
 		\end{column}
@@ -534,6 +599,7 @@
 	\vfill
 }
 
+\subsection{Využití vodíku}
 \frame{
 	\frametitle{}
 	\textbf{Využití vodíku}

@@ -466,6 +466,7 @@
 		\item Vodík lze skladovat v čistém stavu nebo jako vázaný ve sloučeninách.
 		\item Plynný vodík je možné skladovat pod nízkým i vysokým tlakem (30--70 MPa).
 		\begin{itemize}
+			\item Problémem jsou malé rozměry molekuly \ce{H2} a tím i její snadné pronikání těsnícími materiály
 			\item Ke skladování lze využít zásobníky pro zemní plyn
 			\item Pro skladování velkých množství lze využít podzemní jeskyně nebo staré doly
 		\end{itemize}
@@ -604,6 +605,19 @@
 	\frametitle{}
 	\textbf{Využití vodíku}
 	\begin{itemize}
+		\item Spalování vodíku s kyslíkem je technicky obtížně proveditelné, proto se příliš nevyužívá.\footnote[frame]{\href{https://www.youtube.com/watch?v=NwMQV2koTK0}{Hydrogen burner ignition test}}
+		\item \ce{2 H2 + O2 -> H2O}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Hydrogen_flame.jpg}
+		\caption*{Vodíkový plamen.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hydrogen_flame.jpg}{Pań w żółtym kapeluszu/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\textbf{Využití vodíku}
+	\begin{itemize}
 		\item Spalování vodíku s kyslíkem je technicky obtížně proveditelné, proto se příliš nevyužívá.
 		\item Častější je využití přeměny vodíku v elektrochemických palivových článcích.
 		\item Známe mnoho různých typů článků, liší se jak provedením elektrod, tak i samotným mechanismem elektrochemické reakce.
@@ -611,6 +625,32 @@
 	\begin{figure}
 		\adjincludegraphics[height=.37\textheight]{img/Fuel_cell_PEMFC.png}
 		\caption*{Schéma palivového článku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Fuel_cell_PEMFC.svg}{Nécropotame/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\textbf{Palivové články s protonově vodivou membránou}
+	\begin{itemize}
+		\item PEMFC -- Proton-exchange membrane fuel cell
+		\item Na anodě dochází k oxidaci vodíku:
+		\item \ce{H2 -> 2 H+ + 2 e-}
+		\item Vzniklé ionty \ce{H+} procházejí speciální membránou ke katodě, kde dochází k redukci kyslíku a vzniku vody:
+		\item \ce{1/2 O2 + 2 H+ + 2e- -> H2O}
+		\item Membrána je zpravidla vyrobena z Nafionu, kopolymeru tvořeného perfluorovaným kopolymerem se sulfonovými skupinami.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.45\textwidth]{img/Nafion3.png}
+		\caption*{Nafion.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Nafion3.svg}{Roland.chem/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\textbf{Palivové články s protonově vodivou membránou}
+	\begin{figure}
+		\adjincludegraphics[width=1.1\textwidth]{img/MEA_Fabrication_Methods.jpg}
+		\caption*{Výroba PEMFC.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:MEA_Fabrication_Methods.jpg}{Xi Yin/Commons}}}
 	\end{figure}
 }
 
